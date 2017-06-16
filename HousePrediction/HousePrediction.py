@@ -74,5 +74,5 @@ test_predictors = test.drop('Cost',axis=1)
 test_targets = test.Cost
 
 
-model =  MLPRegressor()
+model =  RandomForestRegressor()
 fit_and_test(model)
