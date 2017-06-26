@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import math
 from sklearn import model_selection
-
+import argparse
 
 seed = 7
 
@@ -87,7 +87,7 @@ def logistic_regression(Xp,Yp):
 
         gradient_descent(Xp,Yp)
         currenterror = error(Xp,Yp)
-        if(abs(currenterror-preverror)<0.00001):
+        if(abs(currenterror-preverror)<0.001):
             break
         preverror=currenterror
 
@@ -106,7 +106,7 @@ def main():
     global dataset
     global theta
     global alpha
-    alpha=0.01
+   
     dataset = read_and_preprocess_dataset()
     dataset.insert(0,'Dummy',1,allow_duplicates=True)
 
@@ -124,4 +124,10 @@ def main():
 
 
 if __name__=='__main__':
-    main()
+	global alpha
+	parser = argparse.ArgumentParser()
+	parser.add_argument('--alpha',help="Alpha value to be considered in gradient descent",type=float)
+	args=parser.parse_args()
+	alpha = args.alpha
+	print("Alpha is ",alpha)
+	main()
