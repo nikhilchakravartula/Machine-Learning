@@ -1,0 +1,7 @@
+1) np.expand_dims specifies at which position the new axis is to be added.
+2) np.sum and other aggregate functions work on collapsing the axes. For example axis = 0 is not the sum w.r.t rows but w.r.t columns (collapse all the 0th axis and return sum)
+3) If a and  b are numpy arrays, a*b is element wise multiplication while np.multiply and a.dot(b) is the matrix multiplication.
+4) Derivative of softmax can be designed as a variant of covariance matrix calculation.
+5) np.genfromtxt(args.train, delimiter=',') generates np array from a file.
+6) Preserving dimensions while indexing a multi dimensional np array can be done by replace arr[0] with arr[[0]] instead of using reshape after the indexing.
+7) Changing data type of numpy array. x = x.astype(np.int32)
